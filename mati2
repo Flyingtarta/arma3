@@ -1,0 +1,21 @@
+_v = _this select 0; //elige el vehiculo donde se ejecuta el script
+_ia = driver _v; //ia es el driver del _vehiculo
+_ia = setspeedmode "FULL"; // que vaya a las chapas
+// _ia = setCombatMode
+// _ia = setBehaviour behaviour
+
+_vh = v1; // vehiculo a perseguir
+_condicion = (alive (driver _vh)); // perseguir mientras el conductor este vivo
+
+while { _condicion } do {
+  _ia domove position   _vh;
+  sleep 1;
+};
+
+//cosas que quiero agregar:
+//si va a menos de 30km/h ir en combate a fullspeed
+// si va a mas de 30k/m ir en careless a fullspeed y gunner haciendo supression
+// determinar una variable para el vehiculo importante, para que no le dispare a ese o que apunten a las ruedas
+// poner un target attacheado con el offset en la rueda trasera,
+
+//poner condicion de que si viene de frente sea velocidad limitada y en combate;
