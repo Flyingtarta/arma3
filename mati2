@@ -1,15 +1,16 @@
 _v = _this select 0; //elige el vehiculo donde se ejecuta el script
 _ia = driver _v; //ia es el driver del _vehiculo
-_ia = setspeedmode "FULL"; // que vaya a las chapas
-// _ia = setCombatMode
-// _ia = setBehaviour behaviour
+//_ia = setspeedmode "FULL"; // que vaya a las chapas
+_ia setspeedmode "FULL";
+_ia setBehaviour "CARELESS";
+_vh = v1;
+_inter = createvehicle ["Land_HelipadEmpty_F", [0,0,0], [], 0 , "none"];
+_inter attachto [ _vh, [5,0,0]];
 
-_vh = v1; // vehiculo a perseguir
 _condicion = (alive (driver _vh)); // perseguir mientras el conductor este vivo
-
 while { _condicion } do {
-  _ia domove position   _vh;
-  sleep 1;
+  _ia domove position _inter;
+  sleep 5;
 };
 
 //cosas que quiero agregar:
